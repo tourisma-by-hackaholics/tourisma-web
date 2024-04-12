@@ -7,10 +7,6 @@ import findOrCreate from 'mongoose-findorcreate'
 connectDB();
 
 const guideSchema = new mongoose.Schema({
-    guide_id: { type: String, 
-      required: true,
-       unique: true
-       },
     first_name: { type: String,
        required: true 
       },
@@ -45,10 +41,12 @@ const guideSchema = new mongoose.Schema({
       type: String
    },
     aadhar_no: { 
-      type: String 
+      type: String,
+      unique:true 
   },
     license: { 
-      type: String
+      type: String,
+      unique:true
    },
     phone_no: { 
       type: String

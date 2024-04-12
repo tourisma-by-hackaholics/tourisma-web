@@ -5,7 +5,6 @@ const Guiderouter =Router();
 
 Guiderouter.post('/register', (req, res, next) => {
     const {
-        guide_id,
         first_name,
         last_name,
         company_name,
@@ -21,12 +20,11 @@ Guiderouter.post('/register', (req, res, next) => {
         phone_no,
         password
     } = req.body;
-    if (!email || !password || !tourist_id || !first_name || !last_name || !age || !gender) {
+    if (!email || !password || !first_name || !last_name) {
         return res.status(400).json({ err: "Missing fields for guide" });
     }
 
-    Guide.register(new Tourist({
-        guide_id,
+    Guide.register(new Guide({
         first_name,
         last_name,
         company_name,
